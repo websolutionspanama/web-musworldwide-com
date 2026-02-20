@@ -115,7 +115,7 @@
         current = target;
         clearInterval(timer);
       }
-      el.textContent = Math.floor(current).toLocaleString('es');
+      el.textContent = Math.floor(current).toLocaleString('es-ES');
     }, step);
   }
 
