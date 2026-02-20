@@ -6,7 +6,7 @@
   'use strict';
 
   /* ── Navbar: scroll effect + active link ──────────────────────── */
-  const navbar   = document.getElementById('navbar');
+  const navbar = document.getElementById('navbar');
   const navLinks = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('main section[id]');
 
@@ -43,7 +43,7 @@
 
   /* ── Mobile navigation toggle ─────────────────────────────────── */
   const navToggle = document.getElementById('navToggle');
-  const navMenu   = document.getElementById('navMenu');
+  const navMenu = document.getElementById('navMenu');
 
   function closeMenu() {
     navToggle.classList.remove('open');
@@ -142,14 +142,14 @@
   }
 
   /* ── Testimonials slider ──────────────────────────────────────── */
-  const track      = document.getElementById('testimonialTrack');
-  const prevBtn    = document.getElementById('sliderPrev');
-  const nextBtn    = document.getElementById('sliderNext');
+  const track = document.getElementById('testimonialTrack');
+  const prevBtn = document.getElementById('sliderPrev');
+  const nextBtn = document.getElementById('sliderNext');
   const dotsContainer = document.getElementById('sliderDots');
 
   if (track && prevBtn && nextBtn && dotsContainer) {
     const slides = track.querySelectorAll('.testimonial-card');
-    let current  = 0;
+    let current = 0;
     let autoTimer;
 
     // Build dots
@@ -185,7 +185,7 @@
 
     // Keyboard navigation
     document.getElementById('testimonialsSlider').addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowLeft')  { goTo(current - 1); }
+      if (e.key === 'ArrowLeft') { goTo(current - 1); }
       if (e.key === 'ArrowRight') { goTo(current + 1); }
     });
 
@@ -206,22 +206,22 @@
   }
 
   /* ── Contact form validation ──────────────────────────────────── */
-  const contactForm  = document.getElementById('contactForm');
-  const formSuccess  = document.getElementById('formSuccess');
+  const contactForm = document.getElementById('contactForm');
+  const formSuccess = document.getElementById('formSuccess');
 
   if (contactForm) {
     function showError(fieldId, message) {
       const errorEl = document.getElementById(fieldId + '-error');
-      const input   = document.getElementById(fieldId);
+      const input = document.getElementById(fieldId);
       if (errorEl) errorEl.textContent = message;
-      if (input)   input.setAttribute('aria-invalid', 'true');
+      if (input) input.setAttribute('aria-invalid', 'true');
     }
 
     function clearError(fieldId) {
       const errorEl = document.getElementById(fieldId + '-error');
-      const input   = document.getElementById(fieldId);
+      const input = document.getElementById(fieldId);
       if (errorEl) errorEl.textContent = '';
-      if (input)   input.removeAttribute('aria-invalid');
+      if (input) input.removeAttribute('aria-invalid');
     }
 
     function validateEmail(email) {
@@ -230,27 +230,27 @@
 
     function validate() {
       let valid = true;
-      const nombre  = document.getElementById('nombre');
-      const email   = document.getElementById('email');
-      const asunto  = document.getElementById('asunto');
+      const nombre = document.getElementById('nombre');
+      const email = document.getElementById('email');
+      const asunto = document.getElementById('asunto');
       const mensaje = document.getElementById('mensaje');
 
       ['nombre', 'email', 'asunto', 'mensaje'].forEach(clearError);
 
       if (!nombre.value.trim()) {
-        showError('nombre', 'Por favor ingresa tu nombre.');
+        showError('nombre', 'Please enter your name.');
         valid = false;
       }
       if (!email.value.trim() || !validateEmail(email.value)) {
-        showError('email', 'Por favor ingresa un email válido.');
+        showError('email', 'Please enter a valid email.');
         valid = false;
       }
       if (!asunto.value) {
-        showError('asunto', 'Por favor selecciona el motivo de contacto.');
+        showError('asunto', 'Please select a service.');
         valid = false;
       }
       if (!mensaje.value.trim() || mensaje.value.trim().length < 10) {
-        showError('mensaje', 'Por favor escribe un mensaje de al menos 10 caracteres.');
+        showError('mensaje', 'Please write a message of at least 10 characters.');
         valid = false;
       }
 
@@ -271,13 +271,13 @@
 
       const submitBtn = document.getElementById('submitBtn');
       submitBtn.disabled = true;
-      submitBtn.querySelector('.btn-text').textContent = 'Enviando…';
+      submitBtn.querySelector('.btn-text').textContent = 'Sending…';
 
       // Simulate async send (replace with real fetch() to your backend)
       setTimeout(function () {
         contactForm.reset();
         submitBtn.disabled = false;
-        submitBtn.querySelector('.btn-text').textContent = 'Enviar Mensaje';
+        submitBtn.querySelector('.btn-text').textContent = 'Send Message';
         if (formSuccess) {
           formSuccess.classList.add('visible');
           setTimeout(function () {
